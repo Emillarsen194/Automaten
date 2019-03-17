@@ -13,7 +13,7 @@ namespace Automaten
         static Stack<Soda> fanta = new Stack<Soda>();
         static Stack<Soda> bluekled = new Stack<Soda>();
         static Stack<Soda> mountaindew = new Stack<Soda>();
-
+        Gui LogicGui = new Gui();
         
 
         private int addedmoney;
@@ -128,6 +128,7 @@ namespace Automaten
                 Console.WriteLine("U bhought a " + ReturnColas().Pop().Taste);
                 Thread.Sleep(1500);
                 addedmoney = addedmoney - 25;
+                moneyroom = moneyroom + 25;
                 
             }
 
@@ -137,6 +138,7 @@ namespace Automaten
                 Thread.Sleep(1500);
                 addedmoney = addedmoney - 20;
                 Console.Clear();
+                moneyroom = moneyroom + 20;
             }
 
             else if (whsoda == 3 && addedmoney >= 10)
@@ -144,6 +146,7 @@ namespace Automaten
                 Console.WriteLine("U bhought a " + ReturnBlueKled().Pop().Brand);
                 Thread.Sleep(1500);
                 addedmoney = addedmoney - 10;
+                moneyroom = moneyroom + 10;
             }
 
             else if (whsoda == 4 && addedmoney >= 30)
@@ -151,52 +154,89 @@ namespace Automaten
                 Console.WriteLine("U bhought a " + ReturnMountain().Pop().Taste);
                 Thread.Sleep(1500); 
                 addedmoney = addedmoney - 30;
+                moneyroom = moneyroom + 30;
+
             }
 
             else
             {
                 Thread.Sleep(1500);
                 Console.WriteLine("Wrong input or insuficent money!");
-
+            
             }
 
         }
 
-        public void RefillSoda(int howmanytoadd, int whichsoda)
-        {
-            if (whichsoda == 1 && howmanytoadd < 11)
-            {
-
-            }
-        }
-
-
-    public void AdministratorMenu(int WhichMenu)
+        public void RefillSoda(byte whichsoda)
         {
 
-          
-            switch (WhichMenu)
+            switch (whichsoda)
             {
                 case 1:
-                    Console.Clear();
-                    CheckSodasGui();
-                    Console.ReadLine();
-                    break;
-                case 2:
-                    Console.Clear();
+                    while (ReturnColas().Count < 11)
+                    {
 
+                        Soda colacola = new Soda("Coca-Cola", "Cola", 25);
+                        cola.Push(colacola);
+
+                    }
                     break;
+
+
+
+                case 2:
+                    while (ReturnFantas().Count < 11)
+                    {
+
+                        Soda fantaE = new Soda("Fanta", "Exotic", 20);
+                        fanta.Push(fantaE);
+
+                    }
+                    break;
+
+
                 case 3:
+                    while (ReturnFantas().Count < 11)
+                    {
+
+                        Soda bluekledS = new Soda("Bluekled", "Strawberry", 10);
+                        bluekled.Push(bluekledS);
+
+                    }
                     break;
+
+
                 case 4:
+                    while (ReturnFantas().Count < 11)
+                    {
+
+                        Soda mountaindewC = new Soda("Mountaindew", "Citrus", 30);
+                        mountaindew.Push(mountaindewC);
+
+                    }
                     break;
-                case 5:
-                    break;
-                default:
-                    break;
+
 
             }
+
+
+
         }
+
+
+        public void TakeMoneyFromMoneyRoom(int howmuch)
+        {
+            if (howmuch <= moneyroom)
+            {
+         moneyroom = moneyroom - howmuch;
+            }
+
+            else
+            {
+                Console.WriteLine("U dont have that much in moneyroom u currently have: " + moneyroom);
+            }
+        }
+
 
 
 

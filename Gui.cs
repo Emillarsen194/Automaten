@@ -12,7 +12,7 @@ namespace Automaten
         {
 
         }
-        public void Menu(int addedmoney)
+        public void Menu(int addedmoney, int moneyroom)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("----------------------------------------------");
@@ -87,16 +87,51 @@ $$ |  $$ |\$$$$$$$ |$$ | $$ | $$ |$$ |$$ |  $$ |$$ |$$$$$$$  |  \$$$$  |$$ |    
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine(" 2. Refill the machine ");
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine(" 3. Take money from money room ");
+            Console.WriteLine(" 3. Check how many money in money room        ");
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine(" 4. Check how many money in money room        ");
+            Console.WriteLine(" 4. Take money from money room                ");
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine(" 5. Stats from sales the last month           ");
             Console.WriteLine("----------------------------------------------");
         }
 
+        public void RefillGui()
+        {
+            #region administator sign
+            Console.WriteLine(@" $$$$$$\        $$\               $$\           $$\             $$\                         $$\                                                   $$\           
+$$  __$$\       $$ |              \__|          \__|            $$ |                        $$ |                                                  $$ |          
+$$ /  $$ | $$$$$$$ |$$$$$$\$$$$\  $$\ $$$$$$$\  $$\  $$$$$$$\ $$$$$$\    $$$$$$\  $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\         $$$$$$\  $$$$$$$\  $$ |$$\   $$\ 
+$$$$$$$$ |$$  __$$ |$$  _$$  _$$\ $$ |$$  __$$\ $$ |$$  _____|\_$$  _|  $$  __$$\ \____$$\\_$$  _|  $$  __$$\ $$  __$$\       $$  __$$\ $$  __$$\ $$ |$$ |  $$ |
+$$  __$$ |$$ /  $$ |$$ / $$ / $$ |$$ |$$ |  $$ |$$ |\$$$$$$\    $$ |    $$ |  \__|$$$$$$$ | $$ |    $$ /  $$ |$$ |  \__|      $$ /  $$ |$$ |  $$ |$$ |$$ |  $$ |
+$$ |  $$ |$$ |  $$ |$$ | $$ | $$ |$$ |$$ |  $$ |$$ | \____$$\   $$ |$$\ $$ |     $$  __$$ | $$ |$$\ $$ |  $$ |$$ |            $$ |  $$ |$$ |  $$ |$$ |$$ |  $$ |
+$$ |  $$ |\$$$$$$$ |$$ | $$ | $$ |$$ |$$ |  $$ |$$ |$$$$$$$  |  \$$$$  |$$ |     \$$$$$$$ | \$$$$  |\$$$$$$  |$$ |            \$$$$$$  |$$ |  $$ |$$ |\$$$$$$$ |
+\__|  \__| \_______|\__| \__| \__|\__|\__|  \__|\__|\_______/    \____/ \__|      \_______|  \____/  \______/ \__|             \______/ \__|  \__|\__| \____$$ |
+                                                                                                                                                      $$\   $$ |
+                                                                                                                                                      \$$$$$$  |
+                                                                                                                                                       \______/ ");
+            #endregion
 
-     
+            Console.WriteLine("----------------------------------------------");
+            Console.WriteLine(" 1. Fill up on Cola    ");
+            Console.WriteLine("----------------------------------------------");
+            Console.WriteLine(" 2. Fill up on Fanta ");
+            Console.WriteLine("----------------------------------------------");
+            Console.WriteLine(" 3. Fill up on bluekled ");
+            Console.WriteLine("----------------------------------------------");
+            Console.WriteLine(" 4. Fill up on Mountaindew");
+            Console.WriteLine("----------------------------------------------");
+        }
+
+
+        public void CheckMoneyRoom(int moneyroom)
+        {
+            Console.WriteLine("Money in moneyroom: " + moneyroom + "Dkk\n\n");
+        }
+
+        public void TakemoneyGui()
+        {
+            Console.WriteLine("How much money do u wanna take from money room cant take more than u have though");
+        }
 
 
 

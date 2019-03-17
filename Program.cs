@@ -32,7 +32,7 @@ $$\   $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |      $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |
                 Console.WriteLine(Textmsg[0]);
                 Console.ResetColor();
 
-            gui.Menu(Logic.Addedmoney);
+            gui.Menu(Logic.Addedmoney, Logic.Moneyroom);
 
         
 
@@ -72,12 +72,48 @@ $$\   $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |      $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |
                         break;
                     case 3:
                         Console.Clear();
+
                         gui.AdministratorGui();
-                        int whichAMenu = int.Parse(Console.ReadLine());
-                        Logic.AdministratorMenu(whichAMenu);
-                       
-                    
+
+                        int whichAdminMenu = int.Parse(Console.ReadLine());
+                        
+
+                switch (whichAdminMenu)
+                {
+                    case 1:
+                        Console.Clear();
+                        Logic.CheckSodasGui();
+                        Console.ReadLine();
                         break;
+                    case 2:
+                        Console.Clear();
+                        gui.RefillGui();
+                        byte whichSodas = byte.Parse(Console.ReadLine());
+                        Logic.RefillSoda(whichSodas);
+                        break;
+                    case 3:
+                                Console.Clear();
+                                gui.CheckMoneyRoom(Logic.Moneyroom);
+                        break;
+                    case 4:
+                                Console.Clear();
+                                gui.TakemoneyGui();
+                                int howmuchMoney = int.Parse(Console.ReadLine());
+                                Logic.TakeMoneyFromMoneyRoom(howmuchMoney);
+                        break;
+                    case 5:
+                        break;
+                    default:
+                        break;
+                }
+                        break;
+                     
+            }
+
+
+              
+         
+                    
                     
 
 
@@ -87,7 +123,6 @@ $$\   $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |      $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |
                 
 
                
-            }
             }
 
         }
