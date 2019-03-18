@@ -265,13 +265,7 @@ namespace Automaten
 
 
 
-        public void CheckSodasGui()
-        {
-            Console.WriteLine("Cola tilbage: " + ReturnColas().Count());
-            Console.WriteLine("Fanta tilbage: " + ReturnFantas().Count());
-            Console.WriteLine("Bluekled tilbage: " + ReturnBlueKled().Count());
-            Console.WriteLine("Mountaindew tilbage: " + ReturnMountain().Count());
-        } // gui that checks sodas
+
     }
 }
       

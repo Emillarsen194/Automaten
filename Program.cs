@@ -138,7 +138,13 @@ $$\   $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |      $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |
 
             }
 
-
+            void ChecksodasGui()
+            {
+                Console.WriteLine("Cola tilbage: " + Logic.ReturnColas().Count());
+                Console.WriteLine("Fanta tilbage: " + Logic.ReturnFantas().Count());
+                Console.WriteLine("Bluekled tilbage: " + Logic.ReturnBlueKled().Count());
+                Console.WriteLine("Mountaindew tilbage: " + Logic.ReturnMountain().Count());
+            }
             void SwitchAdmin()
             {
                 Console.Clear();
@@ -154,7 +160,7 @@ $$\   $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |      $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |
                     case 1:
 
                         Console.Clear();
-                        Logic.CheckSodasGui(); //checking how many sodas back in each stack
+                        ChecksodasGui(); //checking how many sodas back in each stack
                         Console.ReadLine();
                         break;
 
