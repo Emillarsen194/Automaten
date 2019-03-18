@@ -9,6 +9,7 @@ namespace Automaten
 {
     class Automat
     {
+        //making our stacks holding the diffrent objects
         static Stack<Soda> cola = new Stack<Soda>();
         static Stack<Soda> fanta = new Stack<Soda>();
         static Stack<Soda> bluekled = new Stack<Soda>();
@@ -19,7 +20,7 @@ namespace Automaten
         private int addedmoney;
         private int moneyroom;
         private bool power;
-        private int quantity;
+      
 
         #region MakeItPublic
         public int Addedmoney
@@ -87,10 +88,10 @@ namespace Automaten
         {
 
         }
-        public void AddSoda()
+        public void AddSoda() //adds soda to the stacks and creating objects 
         {
             
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < 11; i++) // creating 11 objects in the cocacola stack
             {
                 Soda colacola = new Soda("Coca-Cola", "Cola", 25);
                 cola.Push(colacola);
@@ -116,12 +117,12 @@ namespace Automaten
             }
         }
 
-        public int Addmoney(int Howmuch)
+        public int Addmoney(int Howmuch) //add money in the machine logic
         {
             return Addedmoney = Addedmoney + Howmuch;
         }
 
-        public void BuySoda(int whsoda)
+        public void BuySoda(int whsoda) //a method that does so we can buy soda and earn money for it and so on
         {
             if (whsoda == 1 && Addedmoney >= 25)
             {
@@ -167,16 +168,16 @@ namespace Automaten
 
         }
 
-        public void RefillSoda(byte whichsoda)
+        public void RefillSoda(byte whichsoda)  //being able to refill soda with new objects 
         {
 
             switch (whichsoda)
             {
                 case 1:
-                    while (ReturnColas().Count < 11)
+                    while (ReturnColas().Count < 11) // runs while sodas quanity is less than 11
                     {
 
-                        Soda colacola = new Soda("Coca-Cola", "Cola", 25);
+                        Soda colacola = new Soda("Coca-Cola", "Cola", 25); //making new objects in the stack
                         cola.Push(colacola);
 
                     }
@@ -224,7 +225,7 @@ namespace Automaten
         }
 
 
-        public void TakeMoneyFromMoneyRoom(int howmuch)
+        public void TakeMoneyFromMoneyRoom(int howmuch) //take our earnings out of the money room
         {
             if (howmuch <= moneyroom)
             {

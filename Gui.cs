@@ -12,7 +12,7 @@ namespace Automaten
         {
 
         }
-        public void Menu(int addedmoney, int moneyroom)
+        public void Menu(int addedmoney)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("----------------------------------------------");

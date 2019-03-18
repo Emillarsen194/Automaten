@@ -8,6 +8,8 @@ namespace Automaten
 {
     class Soda
     {
+        // our soda class that we create sodas with
+
         private String brand;
         private String taste;
         private int price;

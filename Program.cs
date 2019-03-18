@@ -10,11 +10,11 @@ namespace Automaten
     {
         static void Main(string[] args)
         {
-            Gui gui = new Gui();
-            Automat Logic = new Automat();
-            Logic.AddSoda();
-            Logic.ReturnColas();
-            Console.ForegroundColor = ConsoleColor.Green;
+            Gui gui = new Gui(); 
+            Automat Logic = new Automat(); //creating our automat object
+            Logic.AddSoda(); //adding our sodas
+
+            Console.ForegroundColor = ConsoleColor.Green; //changing colors
             string[] Textmsg = { @" $$$$$$\                  $$\                  $$$$$$\              $$\                                        $$\     
 $$  __$$\                 $$ |                $$  __$$\             $$ |                                       $$ |    
 $$ /  \__| $$$$$$\   $$$$$$$ | $$$$$$\        $$ /  $$ |$$\   $$\ $$$$$$\    $$$$$$\  $$$$$$\$$$$\   $$$$$$\ $$$$$$\   
@@ -23,32 +23,33 @@ $$ /  \__| $$$$$$\   $$$$$$$ | $$$$$$\        $$ /  $$ |$$\   $$\ $$$$$$\    $$$
 $$\   $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |      $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |  $$ |$$ | $$ | $$ |$$  __$$ | $$ |$$\ 
 \$$$$$$  |\$$$$$$  |\$$$$$$$ |\$$$$$$$ |      $$ |  $$ |\$$$$$$  |  \$$$$  |\$$$$$$  |$$ | $$ | $$ |\$$$$$$$ | \$$$$  |
  \______/  \______/  \_______| \_______|      \__|  \__| \______/    \____/  \______/ \__| \__| \__| \_______|  \____/ 
-                                                                                                                       " };
+                                                                                                                       " }; // one of our textmsg in a array for easyer printing
 
 
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(Textmsg[0]);
+                Console.WriteLine(Textmsg[0]); //writing our big sign at index 0
                 Console.ResetColor();
 
-            gui.Menu(Logic.Addedmoney, Logic.Moneyroom);
+            gui.Menu(Logic.Addedmoney); // printing our menu + our current added money 
 
         
 
             Console.Write("\n\n choose: ");
-            int whichMenu = int.Parse(Console.ReadLine());
-
+                try //trying this code 
+                {
+            int whichMenu = int.Parse(Console.ReadLine()); //readsline on which menu we use
 
             switch (whichMenu)
             {
                     case 1:
-                        gui.AddMoney();
+                        gui.AddMoney(); // this is our add money menu
                         int howmuch = int.Parse(Console.ReadLine());
                         switch (howmuch)
                         {
                             case 1:
-                                Logic.Addmoney(5);
+                                Logic.Addmoney(5); //adds 5 to added money and so on
                                 break;
                             case 2:
                                 Logic.Addmoney(10);
@@ -60,46 +61,51 @@ $$\   $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |      $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |
                                 Console.WriteLine("u cant use anyother dk than 5, 10, 20");
                                 break;
                         }
+
                         Console.Clear();
                         break;
                     case 2:
                         Console.Clear();
-                        gui.BuySodaGui();
+                        gui.BuySodaGui(); // prints our buy sodagui
                        
-                        int whichSoda = int.Parse(Console.ReadLine());
-                        Logic.BuySoda(whichSoda);
+                        int whichSoda = int.Parse(Console.ReadLine()); //which soda do u wanna buy
+                        Logic.BuySoda(whichSoda); //calls our method that buy the soda
                         Console.Clear();
                         break;
                     case 3:
                         Console.Clear();
 
-                        gui.AdministratorGui();
+                        gui.AdministratorGui(); // calls our admin menu
 
-                        int whichAdminMenu = int.Parse(Console.ReadLine());
+                        int whichAdminMenu = int.Parse(Console.ReadLine()); // and what do we wanna do in the admin menu
                         
 
                 switch (whichAdminMenu)
                 {
                     case 1:
+
                         Console.Clear();
-                        Logic.CheckSodasGui();
+                        Logic.CheckSodasGui(); //checking how many sodas back in each stack
                         Console.ReadLine();
                         break;
+
                     case 2:
+
                         Console.Clear();
-                        gui.RefillGui();
+                        gui.RefillGui(); //refill gui
                         byte whichSodas = byte.Parse(Console.ReadLine());
-                        Logic.RefillSoda(whichSodas);
+                        Logic.RefillSoda(whichSodas); // refill the choosen soda to max again
                         break;
+
                     case 3:
                                 Console.Clear();
-                                gui.CheckMoneyRoom(Logic.Moneyroom);
+                                gui.CheckMoneyRoom(Logic.Moneyroom); // checking our money room for how much money we have earned 
                         break;
                     case 4:
                                 Console.Clear();
-                                gui.TakemoneyGui();
+                                gui.TakemoneyGui(); // take money from the machine gui
                                 int howmuchMoney = int.Parse(Console.ReadLine());
-                                Logic.TakeMoneyFromMoneyRoom(howmuchMoney);
+                                Logic.TakeMoneyFromMoneyRoom(howmuchMoney); //method that allow us to take money from the moneyroom
                         break;
                     case 5:
                         break;
@@ -109,6 +115,17 @@ $$\   $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |      $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |
                         break;
                      
             }
+                }
+                catch (FormatException e) //if we write anything else than numbers 
+                {
+                    Console.Clear();
+                    Console.WriteLine("fejl du kan kun skrive tal");
+                }
+                catch (Exception e) //if user does somthing really stupid
+                {
+                    Console.WriteLine("fejl1");
+                }
+
 
 
               
