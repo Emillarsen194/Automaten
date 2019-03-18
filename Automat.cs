@@ -14,12 +14,13 @@ namespace Automaten
         static Stack<Soda> fanta = new Stack<Soda>();
         static Stack<Soda> bluekled = new Stack<Soda>();
         static Stack<Soda> mountaindew = new Stack<Soda>();
-        Gui LogicGui = new Gui();
+        
         
 
         private int addedmoney;
         private int moneyroom;
-        private bool power;
+        private bool access;
+        
       
 
         #region MakeItPublic
@@ -48,16 +49,16 @@ namespace Automaten
             }
         }
 
-        public bool Power
+        public bool Access
         {
             get
             {
-                return power;
+                return access;
             }
 
             set
             {
-                power = value;
+                access = value;
             }
         }
         #endregion
@@ -95,78 +96,80 @@ namespace Automaten
             {
                 Soda colacola = new Soda("Coca-Cola", "Cola", 25);
                 cola.Push(colacola);
-            }
 
-            for (int i = 0; i < 11; i++)
-            {
                 Soda fantaE = new Soda("Fanta", "Exotic", 20);
                 fanta.Push(fantaE);
-            }
 
-            for (int i = 0; i < 11; i++)
-            {
                 Soda bluekledS = new Soda("Bluekled", "Strawberry", 10);
                 bluekled.Push(bluekledS);
-            }
 
-
-            for (int i = 0; i < 11; i++)
-            {
                 Soda mountaindewC = new Soda("Mountaindew", "Citrus", 30);
                 mountaindew.Push(mountaindewC);
             }
+
         }
+
 
         public int Addmoney(int Howmuch) //add money in the machine logic
         {
             return Addedmoney = Addedmoney + Howmuch;
         }
 
-        public void BuySoda(int whsoda) //a method that does so we can buy soda and earn money for it and so on
+        public String BuySoda(int whsoda) //a method that does so we can buy soda and earn money for it and so on
         {
-            if (whsoda == 1 && Addedmoney >= 25)
+
+   
+            if (whsoda == 1 && Addedmoney >= ReturnColas().Peek().Price)
             {
-                Console.WriteLine("U bhought a " + ReturnColas().Pop().Taste);
-                Thread.Sleep(1500);
-                addedmoney = addedmoney - 25;
-                moneyroom = moneyroom + 25;
+               
+                addedmoney = addedmoney - ReturnColas().Peek().Price;
+                moneyroom = moneyroom + ReturnColas().Peek().Price;
                 
+                return "U bhought a " + ReturnColas().Pop().Taste;
             }
 
-            else if (whsoda == 2 && addedmoney >= 20)
+
+            else if (whsoda == 2 && addedmoney >= ReturnFantas().Peek().Price)
             {
-                Console.WriteLine("U bhought a " + ReturnFantas().Pop().Taste);
-                Thread.Sleep(1500);
-                addedmoney = addedmoney - 20;
+                
+                addedmoney = addedmoney - ReturnFantas().Peek().Price;
                 Console.Clear();
-                moneyroom = moneyroom + 20;
+                moneyroom = moneyroom + ReturnFantas().Peek().Price;
+
+               return "U bhought a " + ReturnFantas().Pop().Taste;
             }
 
-            else if (whsoda == 3 && addedmoney >= 10)
+            else if (whsoda == 3 && addedmoney >= ReturnBlueKled().Peek().Price)
             {
-                Console.WriteLine("U bhought a " + ReturnBlueKled().Pop().Brand);
-                Thread.Sleep(1500);
-                addedmoney = addedmoney - 10;
-                moneyroom = moneyroom + 10;
+                
+                addedmoney = addedmoney - ReturnBlueKled().Peek().Price;
+                moneyroom = moneyroom + ReturnBlueKled().Peek().Price;
+
+                return "U bhought a " + ReturnBlueKled().Pop().Brand;
             }
 
-            else if (whsoda == 4 && addedmoney >= 30)
+            else if (whsoda == 4 && addedmoney >= ReturnMountain().Peek().Price)
             {
-                Console.WriteLine("U bhought a " + ReturnMountain().Pop().Taste);
-                Thread.Sleep(1500); 
-                addedmoney = addedmoney - 30;
-                moneyroom = moneyroom + 30;
+
+                addedmoney = addedmoney - ReturnMountain().Peek().Price;
+                moneyroom = moneyroom + ReturnMountain().Peek().Price;
+
+               return "U bhought a " + ReturnMountain().Pop().Brand;
+                
 
             }
 
             else
             {
-                Thread.Sleep(1500);
-                Console.WriteLine("Wrong input or insuficent money!");
-            
-            }
+              
+                return "insuficent money!";
 
+            }
         }
+                        
+
+          
+
 
         public void RefillSoda(byte whichsoda)  //being able to refill soda with new objects 
         {
@@ -239,7 +242,19 @@ namespace Automaten
         }
 
 
+        public bool AdminLogin(String username, String pass) //checks username and password on administrator menu
+        {
+            if (username == "admin" && pass == "soda")
+            {
 
+                return Access = true;
+
+            }
+
+            return Access;
+        
+
+        }
 
 
 

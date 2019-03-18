@@ -37,7 +37,7 @@ namespace Automaten
 
         }
 
-        public void BuySodaGui()
+        public void BuySodaGui(int pricecola, int pricefanta, int priceblue, int pricemountain)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             #region Buysodasign
@@ -54,13 +54,13 @@ $$$$$$$  |\$$$$$$  |\$$$$$$$ |      \$$$$$$  |\$$$$$$  |\$$$$$$$ |\$$$$$$$ |
                      \______/                               ");
             #endregion
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine("1. CocaCola                    25Kr");
+            Console.WriteLine("1. CocaCola                    " + pricecola + "DK");
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine("2. Fanta Exotic                20Kr");
+            Console.WriteLine("2. Fanta Exotic                " + pricefanta + "DK");
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine("3. Bluekled(strawberry flavor) 10Kr");
+            Console.WriteLine("3. Bluekled(strawberry flavor) " + priceblue + "DK");
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine("4. Mountaindew                 30Kr");
+            Console.WriteLine("4. Mountaindew                 " + pricemountain + "DK");
             Console.WriteLine("----------------------------------------------");
 
             Console.Write("\n\n Choose One: ");
