@@ -174,7 +174,7 @@ $$\   $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |      $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |
                         Console.Clear();
                         gui.TakemoneyGui(); // take money from the machine gui
                         int howmuchMoney = int.Parse(Console.ReadLine());
-                        Logic.TakeMoneyFromMoneyRoom(howmuchMoney); //method that allow us to take money from the moneyroom
+                        Console.WriteLine(Logic.TakeMoneyFromMoneyRoom(howmuchMoney)); //method that allow us to take money from the moneyroom
                         break;
                     case 5:
                         break;

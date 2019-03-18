@@ -228,16 +228,17 @@ namespace Automaten
         }
 
 
-        public void TakeMoneyFromMoneyRoom(int howmuch) //take our earnings out of the money room
+        public String TakeMoneyFromMoneyRoom(int howmuch) //take our earnings out of the money room
         {
             if (howmuch <= moneyroom)
             {
-         moneyroom = moneyroom - howmuch;
+              moneyroom = moneyroom - howmuch;
+                return "";
             }
 
             else
             {
-                Console.WriteLine("U dont have that much in moneyroom u currently have: " + moneyroom);
+               return "U dont have that much in moneyroom u currently have: " + moneyroom;
             }
         }
 
@@ -270,7 +271,7 @@ namespace Automaten
             Console.WriteLine("Fanta tilbage: " + ReturnFantas().Count());
             Console.WriteLine("Bluekled tilbage: " + ReturnBlueKled().Count());
             Console.WriteLine("Mountaindew tilbage: " + ReturnMountain().Count());
-        }
+        } // gui that checks sodas
     }
 }
       
